@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FRM</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <style>
+      .c {
+        text-align: center;
+        font-family: "Trebuchet MS";
+        font-size: 23px;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 0.782);
+      }
+      .l {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        font-weight: bold;
+      }
+      .c:hover {
+        color: white;
+      }
+      body {
+        background-image: url(background.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        backdrop-filter: blur(5px);
+      }
+      p,
+      li {
+        font-size: 20px;
+      }
+      .nav-link:hover,
+      .h:hover {
+        filter: brightness(5);
+        color: white;
+      }
+    </style>
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  </head>
+  <body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light" style="padding: 20px">
+          <div class="container text-evenly">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul
+                class="navbar-nav me-auto ms-auto mb-1 mb-lg-0 nav w-100 justify-content-evenly"
+              >
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    style="color: white"
+                    aria-current="page"
+                    href="/homejob.html"
+                  >
+                    <i class="fa fa-home"></i>
+                    <span class="h">Home</span></a
+                  >
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    style="color: rgba(255, 255, 255, 0.666)"
+                    aria-current="page"
+                    href="/appjob.html"
+                  >
+                    <i class="fa fa-list"></i>
+                    <span class="h">Applications</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    style="color: rgba(255, 255, 255, 0.666)"
+                    aria-current="page"
+                    href="/inbox.html"
+                  >
+                    <i class="fa fa-info"></i>
+                    <span class="h">Inbox</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    style="color: rgba(255, 255, 255, 0.666)"
+                    aria-current="page"
+                    href="/vacjob.html"
+                  >
+                    <i class="fa fa-info"></i>
+                    <span class="h">Vacancies</span>
+                  </a>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    style="color: rgba(255, 255, 255, 0.666)"
+                    aria-current="page"
+                    href=""
+                  >
+                    <i class="fa fa-address-book"></i>
+                    <span class="h">Account</span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="/details.html">Details</a></li>
+                    <li><a class="dropdown-item" href="/index.html">Sign out</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    <main>
+      <div class="container" style="max-width: 100%">
+        <div class="d-flex flex-row mb-3" style="text-align: center">
+          <div class="col">
+            <table
+              class="table table-responsive table-striped table-hover table-bordered"
+            >
+              <tbody>
+                <tr style="text-align: center">
+                  <td style="width: 50%; align-self: center; background-color: white;">
+                    <a
+                      href="/vacjob.html"
+                      style="font-size: 20px; font-weight: bold; color: aqua"
+                      >Vacancies vs Applications</a
+                    >
+                    <canvas
+                      id="myChart"
+                      style="
+                        max-width: 1470px;
+                        width: 100%;
+                        align-items: center;
+                        height: 400px;
+                      "
+                    ></canvas>
+                    <p class="l">Don't miss out. Apply now!</p>
+                    <script>
+                      var xValues = [
+                        50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150,
+                      ];
+                      var yValues = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
+
+                      new Chart("myChart", {
+                        type: "line",
+                        data: {
+                          labels: xValues,
+                          datasets: [
+                            {
+                                label:"Applications",
+                              fill: false,
+                              lineTension: 0,
+                              backgroundColor: "rgba(0,0,255,1.0)",
+                              borderColor: "rgba(0,0,255,0.1)",
+                              data: yValues,
+                            },
+                          ],
+                        },
+                        options: {
+                          scales: {
+                            yAxes: [{ ticks: { min: 6, max: 16 } }],
+                          },
+                        },
+                      });
+                    </script>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a
+                      href="/vacjob.html"
+                      style="font-size: 20px; font-weight: bold; color: aqua"
+                      >New Vacancies</a
+                    >
+                    <p class="l">25 new job postings. Apply now!</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
